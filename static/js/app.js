@@ -1,35 +1,38 @@
-d3.json("samples.json").then(data => {
-    
-  var names = data.names;
-  
+function Init() {
   var dropdownMenu = d3.select("#selDataset");
-  
-  names.forEach(item => {
-      var tag = dropdownMenu.append("option");
-      tag.text(item);
-      tag.attr("id", item);
-      })
 
-});
-
-d3.selectAll("#selDataset").on("change", pullData);
-
-
-
-function pullData() {
-  var dropdownMenu = d3.select("#selDataset");
-  var dataset = dropdownMenu.property("value");
-
-  d3.json("data/samples.json").then(data => {
-
-      // Demographio table
-      var pulledMetaData = data.metadata.filter(data => {return data.id == dataset})
+  d3.json("samples.json").then((data) => {
       
-      var demoInfo = d3.select("#sample-metadata");
-      demographicInfo.html("");
+    var names = data.names;
+    names.forEach(item => {
+        var tag = dropdownMenu.append("option");
+        tag.text(item);
+        tag.attr("value", item);
+        })
 
-      console.log(pulledMetaData)
-      Object.entries(pulledMetaData[0]).forEach(function([key, value]) {
-      demoInfo.append("p").text(`${key}: ${value}`);
-      })})};
+    demoTable(names[0])
+    charts(names[0])
+  });
+}
+
+Init();
+
+// d3.selectAll("#selDataset").on("change", demoTable(demographics);
+
+
+function demoTable(item) {
+  //Read the JSON data
+  d3.json("samples.json").then((sampleData) => {
+    console.log(sampleData);
+
+    // Demographics table
+    var MetaData = sampleData.metadata;
+    var dataid = MetaData.filter(data => data.id == item);
+    var htmldata = d3.select("#sample-metadata").html("");
+
+    Object.entries(dataid[0]).forEach(([key, value]) => {
+        htmldata.append("p").text(`${key}: ${value}`);
+     });   
+  });
+}
 
