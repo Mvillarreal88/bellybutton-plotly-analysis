@@ -1,29 +1,35 @@
-d3.js  on("samples.json").then((data)) => {
+d3.json("samples.json").then(data => {
+    
+  var names = data.names;
+  
+  var dropdownMenu = d3.select("#selDataset");
+  
+  names.forEach(item => {
+      var tag = dropdownMenu.append("option");
+      tag.text(item);
+      tag.attr("id", item);
+      })
+
+});
+
+d3.selectAll("#selDataset").on("change", pullData);
 
 
 
-}
+function pullData() {
+  var dropdownMenu = d3.select("#selDataset");
+  var dataset = dropdownMenu.property("value");
 
+  d3.json("data/samples.json").then(data => {
 
-names = samples.map(function (row){
-    return row.names
-  });
+      // Demographio table
+      var pulledMetaData = data.metadata.filter(data => {return data.id == dataset})
+      
+      var demoInfo = d3.select("#sample-metadata");
+      demographicInfo.html("");
 
-// Trace for the Greek Data
-let trace1 = {
-    x: samples.map(row => row.greekName),
-    y: data.map(row => row.greekSearchResults),
-    type: "bar",
-    orientation: "h"
-  };
+      console.log(pulledMetaData)
+      Object.entries(pulledMetaData[0]).forEach(function([key, value]) {
+      demoInfo.append("p").text(`${key}: ${value}`);
+      })})};
 
-// Data trace array
-let traceData = [trace1];
-
-// Apply the group barmode to the layout
-let layout = {
-  title: "Greek gods search results"
-};
-
-// Render the plot to the div tag with id "plot"
-Plotly.newPlot("plot", traceData, layout);
