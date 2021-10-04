@@ -50,6 +50,26 @@ function charts(item) {
 
     // filter the data for charting
     var dictSample = filtereddata.filter(data => data.id == item)[0];
+    console.log(dictSample)
+
+    var valuessample = dictSample.sample_values;
+
+    //Creating the values to be used in the chart
+    var chartvalues = valuessample.slice(0,10).reverse();
+
+    console.log(chartvalues)
+
+    //Getting Chart labels
+    sampleid = dictSample.otu_ids;
+    chartlabels = sampleid.slice(0,10).reverse();
+    
+    console.log(chartlabels)
+
+    //Format the labels on the chart label
+
+
+  });
+}
 
 
 
@@ -58,4 +78,6 @@ function optionChanged(itemOption)  {
   //Update table with changed id
   demoTable(itemOption);
 
+  //Update charts with changed id
+  charts(itemOption);
 }
