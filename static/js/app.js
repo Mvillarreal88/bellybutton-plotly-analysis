@@ -15,7 +15,6 @@ function Init() {
   });
 }
 
-Init();
 
 
 
@@ -66,6 +65,29 @@ function charts(item) {
     console.log(chartlabels)
 
     //Format the labels on the chart label
+    formOTU = [];
+    chartlabels.forEach((value) => {
+
+    formOTU.push(`OTU ${value}`);
+    });
+
+    console.log(formOTU)
+
+    //add hovertext to items
+    var hovertext = chartvalues.otu_labels;
+    var hoverbar  = hovertext.slice(0,10).reverse();
+    
+    var tracebar = {
+      type: "bar",
+      y: formOTU,
+      x: chartvalues,
+      text: hoverbar,
+      orientation: 'h'
+  };
+    //add variable for barchart to sit in
+    chartData = [tracebar];
+
+    Plotly.newPlot("bar", chartData);
 
 
   });
@@ -81,3 +103,5 @@ function optionChanged(itemOption)  {
   //Update charts with changed id
   charts(itemOption);
 }
+
+Init();
