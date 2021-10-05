@@ -41,7 +41,7 @@ function demoTable(item) {
 //Creating the function to hold the charts
 function charts(item) {
 
-  d3.json("data/data.json").then((sampleData) => {
+  d3.json("samples.json").then((sampleData) => {
 
     var filtereddata = sampleData.samples;
     console.log("filetered data:")
@@ -75,13 +75,13 @@ function charts(item) {
 
     //add hovertext to items
     var hovertext = chartvalues.otu_labels;
-    var hoverbar  = hovertext.slice(0,10).reverse();
+    // var hoverbar  = hovertext.slice(0,10).reverse();
     
     var tracebar = {
       type: "bar",
       y: formOTU,
       x: chartvalues,
-      text: hoverbar,
+      text: hovertext,
       orientation: 'h'
     };
     
