@@ -75,7 +75,6 @@ function charts(item) {
 
     //add hovertext to items
     var hovertext = chartvalues.otu_labels;
-    // var hoverbar  = hovertext.slice(0,10).reverse();
     
     var tracebar = {
       type: "bar",
