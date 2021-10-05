@@ -10,8 +10,8 @@ function Init() {
         tag.attr("value", item);
         })
 
-    demoTable(names[0])
-    charts(names[0])
+    demoTable(names[0]);
+    charts(names[0]);
   });
 }
 
@@ -83,11 +83,37 @@ function charts(item) {
       x: chartvalues,
       text: hoverbar,
       orientation: 'h'
-  };
+    };
+    
     //add variable for barchart to sit in
     chartData = [tracebar];
 
     Plotly.newPlot("bar", chartData);
+
+    var tracebubble = {
+      x: sampleid,
+      y: valuessample,
+      text: hovertext,
+      mode: "markers",
+      marker: {
+          color: sampleid,
+          size: valuessample
+      }
+  };
+  
+  bubbleData = [tracebubble];
+
+  var layout = {
+    title: "OTU",
+    margin: {
+      showlegend: false,
+      height: 700,
+      width: 1100,
+      b: 100
+    }
+  };  
+
+  Plotly.newPlot("bubble", bubbleData, layout);
 
 
   });
