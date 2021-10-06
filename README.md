@@ -15,5 +15,6 @@ We start by loading in the Belly Button Biodiversity dataset into a json. This w
 
 • There is also on the side a Demographic table that will present more detailed data based on the selection from the dropdown.
 
+[GithubPages](https://mvillarreal88.github.io/plotly-challenge/)
 
 >- Matthew Villarreal
