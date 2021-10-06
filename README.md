@@ -4,7 +4,7 @@
 
 We start by loading in the Belly Button Biodiversity dataset into a json. This will reveal a small handful of microb species were present in more than 70% of people.
 
-### Step 1. Plotly:
+### Plotly steps:
 
 
 • Using D3 library to read in the samples.json. Once read in we can use Javascript to manipulate the data.
