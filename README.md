@@ -2,7 +2,7 @@
 
 ### Data set Analysis:
 
-We start by loading in the Belly Button Biodiversity dataset into a json. This will reveal a small handful of microb species were present in more than 70% of people.
+We start by loading in the Belly Button Biodiversity dataset into a json. This will reveal a small handful of microbe species were present in more than 70% of people.
 
 ### Plotly steps:
 
