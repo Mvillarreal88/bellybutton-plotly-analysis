@@ -17,6 +17,6 @@ We start by loading in the Belly Button Biodiversity dataset into a json. This w
 
 ![Screenshot 2021-12-15 184010](https://user-images.githubusercontent.com/81705144/146286875-64589644-7695-42fb-8988-2547b6710596.png)
 
-[GithubPages](https://mvillarreal88.github.io/plotly-challenge/)
+[GithubPages](https://mvillarreal88.github.io/bellybutton-plotly-analysis/)
 
 >- Matthew Villarreal
